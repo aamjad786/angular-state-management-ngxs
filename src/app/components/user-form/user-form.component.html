@@ -1,0 +1,28 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <h5 class="card-title">Add / Edit user</h5>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" formControlName="name" #name/>
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" formControlName="city" #city/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success mr-2">
+                    Save
+                </button>
+                <button class="btn btn-primary" (click)="clearForm()">
+                    Clear
+                </button>
+                <span style="color: #0095da;cursor:pointer" (click)="gotoTest()">GoTo Test</span>
+                <h3>From User state</h3>
+                {{getUserList$|async|json}}
+                <!-- <h3>From API</h3>
+                {{getUserListFromApi$|async|json}} -->
+            </div>
+        </form>
+    </div>
+</div>
